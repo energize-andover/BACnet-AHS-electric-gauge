@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="refresh" content="15">
+    <meta charset="UTF-8">
+    <title>Electricity Statistics Dashboard</title>
+    <style>
+    button.button {
+    background-color: transparent;
+    border: 2px solid black;
+    font-size: 12pt;
+    padding: 8px 16px;
+    color: black;
+    border-radius: 4px;
+    align: center;
+    }
+    button.button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    }
+    </style>
+</head>
+
+<script src="functions.js"></script>
+
+<body style="background-color: #f9f9f9;">
+<h1 align="center" style="font-family: monospace">Electricity Statistics Dashboard</h1>
+<div style="float:left; padding-top: 20%; padding-left: 10%">
+        <a href="index.html"><button class="button" style="padding: 8px 32px;"> kW<br></button></a><br>
+        <a href="kWh.html"><button class="button" style="padding: 8px 28px;"> kWh<br></button></a><br>
+        <a href="dollars.html"><button class="button"> Cost $$</button></a><br>
+</div>
+<div id="mySVG" style="float: right; padding-right: 60%">
+    <object data="dollars.svg" type="image/svg+xml" width="300%"></object>
+</div>
+
+</body>
+</html>
