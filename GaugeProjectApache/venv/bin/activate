@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/ayushzenith/PycharmProjects/GaugeProject/venv"
+VIRTUAL_ENV="/Users/ayushzenith/GITHUB/BACnet-AHS-electric-gauge/GaugeProjectApache/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

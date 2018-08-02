@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/ayushzenith/PycharmProjects/GaugeProject/venv"
+set -gx VIRTUAL_ENV "/Users/ayushzenith/GITHUB/BACnet-AHS-electric-gauge/GaugeProjectApache/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
