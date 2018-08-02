@@ -100,10 +100,10 @@ The application in its current stage basically a live gauge for monitering elect
 3. When cursor is taken over the buttons they change color and the cursor changes too
 4. Gauges can be hidden by clicking the key in the left
 
-# Issues in current version
+## Issues in current version
 1. The page refreshes every 15 seconds resettign any kind of zoom that might have been set or resetting any graphics with the gauges
 
-# Future updates
+## Future updates
 1. Currently working on making a full big 360 gauge that has 10 pointers each appearing at every hour interval to see how much electricity was used in every hour.
 
 
