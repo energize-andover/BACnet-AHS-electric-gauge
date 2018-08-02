@@ -146,7 +146,10 @@ try:
                 formatter=dollar_formatter)
         dollar.render_to_file("dollars.svg")
 
-        
+
+
+        time.sleep(10)
+
 except KeyboardInterrupt:
     kW.render_to_file("kw.svg")
     kWh.render_to_file("kwh.svg")
