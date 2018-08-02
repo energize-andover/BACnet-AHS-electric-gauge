@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="230c0942-2e3e-458b-a836-4ab285f2d167" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GaugeProjectApache/py/dollars.html" beforeDir="false" afterPath="$PROJECT_DIR$/GaugeProjectApache/py/dollars.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GaugeProjectApache/py/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/GaugeProjectApache/py/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GaugeProjectApache/py/kW.html" beforeDir="false" afterPath="$PROJECT_DIR$/GaugeProjectApache/py/kW.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GaugeProjectApache/py/kWh.html" beforeDir="false" afterPath="$PROJECT_DIR$/GaugeProjectApache/py/kWh.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GaugeProjectApache/py/kWhHourly.html" beforeDir="false" afterPath="$PROJECT_DIR$/GaugeProjectApache/py/kWhHourly.html" afterDir="false" />
-    </list>
+    <list default="true" id="230c0942-2e3e-458b-a836-4ab285f2d167" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,11 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GaugeProjectApache/py/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="248" column="21" selection-start-line="248" selection-start-column="21" selection-end-line="248" selection-end-column="21" />
+            <state relative-caret-position="-1758">
+              <caret line="124" column="56" lean-forward="true" selection-start-line="124" selection-start-column="56" selection-end-line="124" selection-end-column="56" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -33,7 +26,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kWhHourly.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="kWhHourly.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GaugeProjectApache/py/kWhHourly.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="313">
@@ -310,19 +303,25 @@
       <option name="project" value="LOCAL" />
       <updated>1533230193143</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="sleep timer for 10 secs">
+      <created>1533231382957</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1533231382957</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32969698" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5007153" side_tool="true" weight="0.3272727" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32848486" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="7" visible="true" weight="0.32848486" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3272727" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49928468" weight="0.3272727" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
       <window_info anchor="right" id="R Packages" order="3" />
@@ -418,16 +417,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GaugeProjectApache/py/Main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="248" column="21" selection-start-line="248" selection-start-column="21" selection-end-line="248" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GaugeProjectApache/py/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -497,6 +486,16 @@
             <element signature="n#style#0;n#button#0;n#a#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#button#0;n#a#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#1;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GaugeProjectApache/py/Main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1758">
+          <caret line="124" column="56" lean-forward="true" selection-start-line="124" selection-start-column="56" selection-end-line="124" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>
