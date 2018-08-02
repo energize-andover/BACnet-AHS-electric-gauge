@@ -2,7 +2,7 @@
 
 Hi!
 
-I'm Ayush Zenith. A high school sophomore from Andover High School, Andover, Massachusetts and this page is about an application I built with the help of a friend, Samar Seth, who is a junior at Philips Academy, Andover, Massachusetts.
+I'm Ayush Zenith. A high school sophomore from Andover High School, Andover, Massachusetts and this page is about an application I built with the help of a friend, Samar Seth.
 
 To learn more about me check out my [blog](https://ayushenergyproject.weebly.com/).
 
