@@ -127,7 +127,7 @@ try:
         kW = pygal.SolidGauge(
             half_pie=True, inner_radius=0.70,
             style=pygal.style.styles['default'](value_font_size=10))
-        kW.add('AHS MAIN aka all of AHS', [{'value': mainkW, 'max_value': 7000}],
+        kW.add('AHS MAIN aka all of AHS', [{'value': mainkW, 'max_value': 750}],
                   formatter=kW_formatter)
         kW.add('AHS GYM', [{'value': gymkW, 'max_value': 200}],
                   formatter=kW_formatter)
