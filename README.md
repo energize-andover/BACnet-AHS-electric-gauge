@@ -106,7 +106,12 @@ The application in its current stage basically a live gauge for monitering elect
 # Future updates
 1. Currently working on making a full big 360 gauge that has 10 pointers each appearing at every hour interval to see how much electricity was used in every hour.
 
-### Support or Contact
+
+## Screenshots
+![Screenshotone](https://github.com/ayushzenith/BACnet-AHS-electric-gauge/blob/master/Screen%20Shot%202018-08-01%20at%2011.13.51%20PM.png)
+
+
+## Support or Contact
 
 Contact me
 Ayush Zenith
