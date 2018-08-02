@@ -124,29 +124,29 @@ try:
 
         kWh = pygal.SolidGauge(half_pie=True, inner_radius=0.70,
             style=pygal.style.styles['default'](value_font_size=10))
-        kWh.add('AHS MAIN aka all of AHS', [{'value': mainkWh, 'max_value': 25}],
+        kWh.add('AHS MAIN aka all of AHS', [{'value': mainkWh, 'max_value': 50}],
                   formatter=kWh_formatter)
-        kWh.add('AHS GYM', [{'value': gymkWh, 'max_value': 10}],
+        kWh.add('AHS GYM', [{'value': gymkWh, 'max_value': 20}],
                   formatter=kWh_formatter)
-        kWh.add('AHS COLLINS CENTER', [{'value': collinscenterkWh, 'max_value': 10}],
+        kWh.add('AHS COLLINS CENTER', [{'value': collinscenterkWh, 'max_value': 20}],
                   formatter=kWh_formatter)
-        kWh.add('AHS KITCHEN', [{'value': kitchenkWh, 'max_value': 10}],
+        kWh.add('AHS KITCHEN', [{'value': kitchenkWh, 'max_value': 20}],
                   formatter=kWh_formatter)
         kWh.render_to_file("kwh.svg")
 
         dollar = pygal.SolidGauge(half_pie=True, inner_radius=0.70,
                                style=pygal.style.styles['default'](value_font_size=10))
-        dollar.add('AHS MAIN aka all of AHS', [{'value': int(mainkWh*0.12), 'max_value': int(0.12*25)}],
+        dollar.add('AHS MAIN aka all of AHS', [{'value': int(mainkWh*0.12), 'max_value': int(0.12*50)}],
                 formatter=dollar_formatter)
-        dollar.add('AHS GYM', [{'value': int(gymkWh*0.12), 'max_value': int(0.12*10)}],
+        dollar.add('AHS GYM', [{'value': int(gymkWh*0.12), 'max_value': int(0.12*20)}],
                 formatter=dollar_formatter)
-        dollar.add('AHS COLLINS CENTER', [{'value': int(0.12*collinscenterkWh), 'max_value': int(0.12*10)}],
+        dollar.add('AHS COLLINS CENTER', [{'value': int(0.12*collinscenterkWh), 'max_value': int(0.12*20)}],
                 formatter=dollar_formatter)
-        dollar.add('AHS KITCHEN', [{'value': int(0.12*kitchenkWh), 'max_value': int(0.12*10)}],
+        dollar.add('AHS KITCHEN', [{'value': int(0.12*kitchenkWh), 'max_value': int(0.12*20)}],
                 formatter=dollar_formatter)
         dollar.render_to_file("dollars.svg")
-        time.sleep(10)
 
+        
 except KeyboardInterrupt:
     kW.render_to_file("kw.svg")
     kWh.render_to_file("kwh.svg")
