@@ -59,7 +59,7 @@ The application in its current stage basically a live gauge for monitering elect
   * This file in named index.html for easy configuration with apache
   * This file is shows the electricity used in kilowatts
   * Noteable things about the file:
-    * the line ```markdown <meta http-equiv="refresh" content="15">``` forces the html page refresh every 15 seconds to refresh the data it has
+    * the line ```<meta http-equiv="refresh" content="15">``` forces the html page refresh every 15 seconds to refresh the data it has
     * There are 3 buttons on the side with functions:
       * kW opens up index.html
       * kWh opens up kWh.html
@@ -70,7 +70,7 @@ The application in its current stage basically a live gauge for monitering elect
   * This file in named kWh.html because it shows the electricity used in kilowatt hours
   * It starts to calculate kWh used since Main.py started to run
   * Noteable things about the file:
-    * the line ```markdown <meta http-equiv="refresh" content="15">``` forces the html page refresh every 15 seconds to refresh the data it has
+    * the line ```<meta http-equiv="refresh" content="15">``` forces the html page refresh every 15 seconds to refresh the data it has
     * There are 3 buttons on the side with functions:
       * kW opens up index.html
       * kWh opens up kWh.html
@@ -81,7 +81,7 @@ The application in its current stage basically a live gauge for monitering elect
   * This file in named dollars.html because it shows the electricity used in dollars or cost
   * It starts to calculate cost used since Main.py started to run
   * Noteable things about the file:
-    * the line ```markdown <meta http-equiv="refresh" content="15">``` forces the html page refresh every 15 seconds to refresh the data it has
+    * the line ```<meta http-equiv="refresh" content="15">``` forces the html page refresh every 15 seconds to refresh the data it has
     * There are 3 buttons on the side with functions:
       * kW opens up index.html
       * kWh opens up kWh.html
@@ -118,6 +118,7 @@ The application in its current stage basically a live gauge for monitering elect
 ## Support or Contact
 
 Contact me
-Ayush Zenith
-ayushp.zenith@gmail.com
-[blog](https://ayushenergyproject.weebly.com/).
+* Ayush Zenith
+  * ayushp.zenith@gmail.com
+  * [blog](https://ayushenergyproject.weebly.com/).
+
