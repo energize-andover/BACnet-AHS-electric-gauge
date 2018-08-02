@@ -3,6 +3,7 @@ import argparse
 import pandas as pd
 import time
 import datetime
+import os
 from bacnet_gateway_requests import get_value_and_units
 
 def myFunction(facility):
@@ -246,6 +247,21 @@ try:
         gauge_chart.render_to_file("kWhHourly.svg")
 
         time.sleep(15)
+
+        if (int(currentDT.hour) == 23):
+            six = False
+            seven = False
+            eight = False
+            nine = False
+            ten = False
+            eleven = False
+            twelve = False
+            one = False
+            two = False
+            three = False
+            os.remove("kWhHourly.svg")
+            sixamkWh = 0
+
 
 except KeyboardInterrupt:
     kW.render_to_file("kw.svg")

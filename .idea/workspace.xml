@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="230c0942-2e3e-458b-a836-4ab285f2d167" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GaugeProjectApache/py/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/GaugeProjectApache/py/Main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,20 +13,25 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/BACnet_AHS_electric_gauge$Main.coverage" NAME="Main Coverage Results" MODIFIED="1533219211668" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GaugeProjectApache/py" />
+    <SUITE FILE_PATH="coverage/BACnet_AHS_electric_gauge$Main.coverage" NAME="Main Coverage Results" MODIFIED="1533224779615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/GaugeProjectApache/py" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Main.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GaugeProjectApache/py/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="148" column="8" lean-forward="true" selection-start-line="148" selection-start-column="8" selection-end-line="148" selection-end-column="8" />
+            <state relative-caret-position="364">
+              <caret line="262" column="24" selection-start-line="262" selection-start-column="24" selection-end-line="262" selection-end-column="24" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kwh.svg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GaugeProjectApache/py/kwh.svg">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
@@ -195,7 +201,21 @@
       <option name="project" value="LOCAL" />
       <updated>1533222187490</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="sleep timer for 10 secs">
+      <created>1533222310506</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1533222310506</updated>
+    </task>
+    <task id="LOCAL-00006" summary="sleep timer for 10 secs">
+      <created>1533225313539</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1533225313539</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -207,9 +227,9 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32913166" />
       <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32819074" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3277311" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
       <window_info anchor="right" id="R Packages" order="3" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="R Graphics" order="3" />
@@ -264,7 +284,8 @@
     <MESSAGE value="test1 run" />
     <MESSAGE value="changed refresh time to 60 secs" />
     <MESSAGE value="changed the max values in gauge for dollar and kWh" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed the max values in gauge for dollar and kWh" />
+    <MESSAGE value="sleep timer for 10 secs" />
+    <option name="LAST_COMMIT_MESSAGE" value="sleep timer for 10 secs" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/GaugeProjectApache/py/Main.py">
@@ -282,9 +303,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GaugeProjectApache/py/dollars.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GaugeProjectApache/py/kwh.svg">
-      <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/GaugeProjectApache/py/kWh.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -307,10 +325,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GaugeProjectApache/py/kwh.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/GaugeProjectApache/py/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="148" column="8" lean-forward="true" selection-start-line="148" selection-start-column="8" selection-end-line="148" selection-end-column="8" />
+        <state relative-caret-position="364">
+          <caret line="262" column="24" selection-start-line="262" selection-start-column="24" selection-end-line="262" selection-end-column="24" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
