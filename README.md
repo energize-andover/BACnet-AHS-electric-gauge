@@ -109,6 +109,10 @@ The application in its current stage basically a live gauge for monitering elect
 
 ## Screenshots
 ![Screenshotone](https://github.com/ayushzenith/BACnet-AHS-electric-gauge/blob/master/Screen%20Shot%202018-08-01%20at%2011.13.51%20PM.png)
+![Screenshottwo](https://github.com/ayushzenith/BACnet-AHS-electric-gauge/blob/master/Screen%20Shot%202018-08-01%20at%2011.13.54%20PM.png)
+![Screenshotthree](https://github.com/ayushzenith/BACnet-AHS-electric-gauge/blob/master/Screen%20Shot%202018-08-01%20at%2011.16.38%20PM.png)
+![Screenshotfour](https://github.com/ayushzenith/BACnet-AHS-electric-gauge/blob/master/Screen%20Shot%202018-08-01%20at%2011.17.08%20PM.png)
+![Screenshotfive](https://github.com/ayushzenith/BACnet-AHS-electric-gauge/blob/master/Screen%20Shot%202018-08-01%20at%2011.17.42%20PM.png)
 
 
 ## Support or Contact
