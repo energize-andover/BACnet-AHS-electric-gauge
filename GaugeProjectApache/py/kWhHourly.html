@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="refresh" content="180">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="functions.js"></script>
     <meta charset="UTF-8">
     <title>Electricity Statistics Dashboard</title>
     <style>
@@ -23,7 +24,6 @@
 
 </head>
 
-<script src="functions.js"></script>
 
 
 <body style="background-color: #f9f9f9;">
@@ -35,8 +35,20 @@
         <a href="kWhHourly.html"><button class="button"> kWh hourly</button></a><br>
 </div>
 <div id="mySVG" style="float: right; padding-right: 60%">
-    <object data="kWhHourly.svg" type="image/svg+xml" width="300%"></object>
+    <object data="kWhHourly.svg" type="image/svg+xml" width="700%"></object>
 </div>
-
+<script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        async function my_function() {
+            while(true) {
+                $("#mySVG").load("kW.html #mySVG");
+                await sleep(120000);
+                console.log("sleep")
+            }
+        }
+        my_function();
+    </script>
 </body>
 </html>

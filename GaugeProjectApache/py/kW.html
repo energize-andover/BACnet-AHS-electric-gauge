@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="refresh" content="60">
     <meta charset="UTF-8">
     <title>Electricity Statistics Dashboard</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="functions.js"></script>
     <style>
     button.button {
     background-color: transparent;
@@ -22,21 +23,30 @@
     }
     </style>
 </head>
-
-<script src="functions.js"></script>
-
 <body style="background-color: #f9f9f9;">
-<h1 align="center" style="font-family: monospace">Electricity Statistics Dashboard</h1>
-<div style="float:left; padding-top: 20%; padding-left: 10%">
-       <a href="kW.html"><button class="button" style="padding: 8px 45px;"> kW<br></button></a><br>
-        <a href="kWh.html"><button class="button" style="padding: 8px 41px;"> kWh<br></button></a><br>
-        <a href="dollars.html"><button class="button" style="padding: 8px 28px;"> Cost $$</button></a><br>
-        <a href="kWhHourly.html"><button class="button"> kWh hourly</button></a><br>
-</div>
-<div id="mySVG" style="float: right; padding-right: 60%">
-    <object data="kw.svg" type="image/svg+xml" width="300%"></object>
-</div>
+    <h1 align="center" style="font-family: monospace">Electricity Statistics Dashboard</h1>
+    <div style="float:left; padding-top: 20%; padding-left: 10%">
+           <a href="kW.html"><button class="button" style="padding: 8px 45px;"> kW<br></button></a><br>
+            <a href="kWh.html"><button class="button" style="padding: 8px 41px;"> kWh<br></button></a><br>
+            <a href="dollars.html"><button class="button" style="padding: 8px 28px;"> Cost $$</button></a><br>
+            <a href="kWhHourly.html"><button class="button"> kWh hourly</button></a><br>
+    </div>
+    <div id="mySVG" style="float: right; padding-right: 60%">
+        <object data="kw.svg" type="image/svg+xml" width="700%"></object>
+    </div>
 
+    <script>
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        async function my_function() {
+            while(true) {
+                $("#mySVG").load("kW.html #mySVG");
+                await sleep(60000);
+                console.log("sleep")
+            }
+        }
+        my_function();
+    </script>
 </body>
-
 </html>
