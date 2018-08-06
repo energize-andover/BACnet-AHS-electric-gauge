@@ -39,6 +39,7 @@ def myFunction(facility):
         print('Bye')
         import sys
         sys.exit()
+gauge_chart = pygal.Gauge(human_readable=True)
 
 mainkWhConstant=myFunction("Main (kWh)")
 if mainkWhConstant=='':
@@ -161,7 +162,6 @@ try:
                 formatter=dollar_formatter)
         dollar.render_to_file("dollars.svg")
         while currentDT.hour==5:
-            gauge_chart = pygal.Gauge(human_readable=True)
             gauge_chart.title = 'Electricity used hourly in kWh all of ahs'
             gauge_chart.range = [0, 7000]
             if (int(currentDT.hour)==6) and (six==False):
@@ -267,5 +267,5 @@ except KeyboardInterrupt:
     kW.render_to_file("kw.svg")
     kWh.render_to_file("kwh.svg")
     dollar.render_to_file("dollars.svg")
-    while currentDT.hour == 5:
+    if currentDT.hour > 5 and currentDT.hour < 16:
         gauge_chart.render_to_file("kWhHourly.svg")
