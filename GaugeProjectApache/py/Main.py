@@ -267,5 +267,5 @@ except KeyboardInterrupt:
     kW.render_to_file("kw.svg")
     kWh.render_to_file("kwh.svg")
     dollar.render_to_file("dollars.svg")
-    while currentDT.hour == 5:
+    if currentDT.hour > 5 and currentDT.hour < 16:
         gauge_chart.render_to_file("kWhHourly.svg")
