@@ -71,6 +71,7 @@ twelve = False
 one = False
 two = False
 three = False
+
 try:
 
     percent_formatter = lambda x: '{:.10g}%'.format(x)
