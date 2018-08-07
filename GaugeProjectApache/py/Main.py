@@ -71,7 +71,8 @@ twelve = False
 one = False
 two = False
 three = False
-
+gauge_chart.title = 'Electricity used hourly in kWh all of ahs'
+gauge_chart.range = [0, 7000]
 try:
 
     percent_formatter = lambda x: '{:.10g}%'.format(x)
@@ -162,90 +163,88 @@ try:
         dollar.add('AHS KITCHEN', [{'value': int(0.12*kitchenkWh), 'max_value': int(0.12*20)}],
                 formatter=dollar_formatter)
         dollar.render_to_file("dollars.svg")
-        while currentDT.hour==5:
-            gauge_chart.title = 'Electricity used hourly in kWh all of ahs'
-            gauge_chart.range = [0, 7000]
-        if (int(currentDT.hour)==6) and (six==False):
-            six=True
-            gauge_chart.add('6 am', 0)
-            sixamkWh = myFunction("Main (kWh)")
-            if sixamkWh == '':
+        if currentDT.hour>=5 and currentDT.hour<19:
+            if (int(currentDT.hour)==6) and (six==False):
+                six=True
+                gauge_chart.add('6 am', 0)
                 sixamkWh = myFunction("Main (kWh)")
-            sixamkWh = int(sixamkWh)
+                if sixamkWh == '':
+                    sixamkWh = myFunction("Main (kWh)")
+                sixamkWh = int(sixamkWh)
 
-        if (int(currentDT.hour)==7) and (seven==False):
-            seven=True
-            sevenamkWh = myFunction("Main (kWh)")
-            if sevenamkWh == '':
+            if (int(currentDT.hour)==7) and (seven==False):
+                seven=True
                 sevenamkWh = myFunction("Main (kWh)")
-            sevenamkWh = int(sevenamkWh)
-            gauge_chart.add('7 am', sevenamkWh-sixamkWh)
+                if sevenamkWh == '':
+                    sevenamkWh = myFunction("Main (kWh)")
+                sevenamkWh = int(sevenamkWh)
+                gauge_chart.add('7 am', sevenamkWh-sixamkWh)
 
-        if (int(currentDT.hour)==8) and (eight==False):
-            eight=True
-            eightamkWh = myFunction("Main (kWh)")
-            if eightamkWh == '':
+            if (int(currentDT.hour)==8) and (eight==False):
+                eight=True
                 eightamkWh = myFunction("Main (kWh)")
-            eightamkWh = int(eightamkWh)
-            gauge_chart.add('8 am', eightamkWh-sixamkWh)
+                if eightamkWh == '':
+                    eightamkWh = myFunction("Main (kWh)")
+                eightamkWh = int(eightamkWh)
+                gauge_chart.add('8 am', eightamkWh-sixamkWh)
 
-        if (int(currentDT.hour)==9) and (nine==False):
-            nine=True
-            nineamkWh = myFunction("Main (kWh)")
-            if nineamkWh == '':
+            if (int(currentDT.hour)==9) and (nine==False):
+                nine=True
                 nineamkWh = myFunction("Main (kWh)")
-            nineamkWh = int(nineamkWh)
-            gauge_chart.add('9 am', nineamkWh-sixamkWh)
+                if nineamkWh == '':
+                    nineamkWh = myFunction("Main (kWh)")
+                nineamkWh = int(nineamkWh)
+                gauge_chart.add('9 am', nineamkWh-sixamkWh)
 
-        if (int(currentDT.hour)==10) and (ten==False):
-            ten=True
-            tenamkWh = myFunction("Main (kWh)")
-            if tenamkWh == '':
+            if (int(currentDT.hour)==10) and (ten==False):
+                ten=True
                 tenamkWh = myFunction("Main (kWh)")
-            tenamkWh = int(tenamkWh)
-            gauge_chart.add('10 am', tenamkWh-sixamkWh)
+                if tenamkWh == '':
+                    tenamkWh = myFunction("Main (kWh)")
+                tenamkWh = int(tenamkWh)
+                gauge_chart.add('10 am', tenamkWh-sixamkWh)
 
-        if (int(currentDT.hour) == 11) and (eleven == False):
-            eleven = True
-            elevenamkWh = myFunction("Main (kWh)")
-            if elevenamkWh == '':
+            if (int(currentDT.hour) == 11) and (eleven == False):
+                eleven = True
                 elevenamkWh = myFunction("Main (kWh)")
-            elevenamkWh = int(elevenamkWh)
-            gauge_chart.add('11 am', elevenamkWh - sixamkWh)
+                if elevenamkWh == '':
+                    elevenamkWh = myFunction("Main (kWh)")
+                elevenamkWh = int(elevenamkWh)
+                gauge_chart.add('11 am', elevenamkWh - sixamkWh)
 
-        if (int(currentDT.hour) == 12) and (twelve == False):
-            twelve = True
-            twelvepmkWh = myFunction("Main (kWh)")
-            if twelvepmkWh == '':
+            if (int(currentDT.hour) == 12) and (twelve == False):
+                twelve = True
                 twelvepmkWh = myFunction("Main (kWh)")
-            twelvepmkWh = int(twelveamkWh)
-            gauge_chart.add('12 pm', twelvepmkWh - sixamkWh)
+                if twelvepmkWh == '':
+                    twelvepmkWh = myFunction("Main (kWh)")
+                twelvepmkWh = int(twelveamkWh)
+                gauge_chart.add('12 pm', twelvepmkWh - sixamkWh)
 
-        if (int(currentDT.hour) == 13) and (one == False):
-            one = True
-            onepmkWh = myFunction("Main (kWh)")
-            if onepmkWh == '':
+            if (int(currentDT.hour) == 13) and (one == False):
+                one = True
                 onepmkWh = myFunction("Main (kWh)")
-            onepmkWh = int(onepmkWh)
-            gauge_chart.add('1 pm', onepmkWh - sixamkWh)
+                if onepmkWh == '':
+                    onepmkWh = myFunction("Main (kWh)")
+                onepmkWh = int(onepmkWh)
+                gauge_chart.add('1 pm', onepmkWh - sixamkWh)
 
-        if (int(currentDT.hour) == 14) and (two == False):
-            two = True
-            twopmkWh = myFunction("Main (kWh)")
-            if twopmkWh == '':
+            if (int(currentDT.hour) == 14) and (two == False):
+                two = True
                 twopmkWh = myFunction("Main (kWh)")
-            twopmkWh = int(twopmkWh)
-            gauge_chart.add('2 pm', twopmkWh - sixamkWh)
+                if twopmkWh == '':
+                    twopmkWh = myFunction("Main (kWh)")
+                twopmkWh = int(twopmkWh)
+                gauge_chart.add('2 pm', twopmkWh - sixamkWh)
 
-        if (int(currentDT.hour) == 15) and (three == False):
-            three = True
-            threepmkWh = myFunction("Main (kWh)")
-            if threepmkWh == '':
+            if (int(currentDT.hour) == 15) and (three == False):
+                three = True
                 threepmkWh = myFunction("Main (kWh)")
-            threepmkWh = int(threepmkWh)
-            gauge_chart.add('3 pm', threepmkWh - sixamkWh)
+                if threepmkWh == '':
+                    threepmkWh = myFunction("Main (kWh)")
+                threepmkWh = int(threepmkWh)
+                gauge_chart.add('3 pm', threepmkWh - sixamkWh)
 
-        gauge_chart.render_to_file("kWhHourly.svg")
+            gauge_chart.render_to_file("kWhHourly.svg")
 
         time.sleep(15)
 
