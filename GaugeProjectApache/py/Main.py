@@ -217,7 +217,7 @@ try:
                 twelvepmkWh = myFunction("Main (kWh)")
                 if twelvepmkWh == '':
                     twelvepmkWh = myFunction("Main (kWh)")
-                twelvepmkWh = int(twelveamkWh)
+                twelvepmkWh = int(twelvepmkWh)
                 gauge_chart.add('12 pm', twelvepmkWh - sixamkWh)
 
             if (int(currentDT.hour) == 13) and (one == False):
