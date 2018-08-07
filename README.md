@@ -31,6 +31,7 @@ The application in its current stage basically a live gauge for monitering elect
 1. kW(Kilowatt)
 2. kWh(Kilowatt hour)(Starts to calculate the kWh since the server has been running)
 3. Cost $$(Cost in dollars)(Starts to calculate the dollars since the server has been running)
+4. kWh(Kilowatt hour) hourly for school hours(Still in testing)
 
 ### What are the technologies implimented
 1. Python
@@ -41,6 +42,9 @@ The application in its current stage basically a live gauge for monitering elect
 6. SVG
 7. Pandas
 8. Pygal
+9. AJAX
+10. JQuery
+11.
 
 ## In depth explanations of each file
 1. Main.py
