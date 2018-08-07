@@ -163,7 +163,8 @@ try:
         dollar.add('AHS KITCHEN', [{'value': int(0.12*kitchenkWh), 'max_value': int(0.12*20)}],
                 formatter=dollar_formatter)
         dollar.render_to_file("dollars.svg")
-        if currentDT.hour>=5 and currentDT.hour<19:
+
+        if currentDT.hour>=5 and currentDT.hour<16:
             if (int(currentDT.hour)==6) and (six==False):
                 six=True
                 gauge_chart.add('6 am', 0)
