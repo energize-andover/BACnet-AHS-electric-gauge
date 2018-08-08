@@ -44,7 +44,6 @@ The application in its current stage basically a live gauge for monitering elect
 8. Pygal
 9. AJAX
 10. JQuery
-11.
 
 ## In depth explanations of each file
 1. Main.py
@@ -53,6 +52,7 @@ The application in its current stage basically a live gauge for monitering elect
   * Main.py has a function called 'myFunction()' that takes in a String. The String being the location and the unit the user would like their data from the BACnet server.
     * Ex-"Main (kWh)"
   * Main.py takes the values the BACnet server returns and uses the pygal library to generate half solid gauges.
+  * Main.py also takes in values every hour from 6 am - 3 pm to generate a gauge for kWh hourly school usage
   * The pygal library then take the values and generates a .svg file with the solid gauges in it.
 2. bacnet_gateway_requests.py
   * This is just one of the files that the BACnet API needs
