@@ -2,8 +2,6 @@ import pygal
 import argparse
 import pandas as pd
 import time
-import datetime
-import os
 from bacnet_gateway_requests import get_value_and_units
 
 def myFunction(facility):
@@ -164,7 +162,7 @@ try:
         dollar.add('AHS KITCHEN', [{'value': int(0.12*kitchenkWh), 'max_value': int(0.12*20)}],
                 formatter=dollar_formatter)
         dollar.render_to_file("dollars.svg")
-        if currentDT2.day == 8:
+        if currentDT2.day == 9:
             if currentDT.hour>=5 and currentDT.hour<16:
                 if (int(currentDT.hour)==6) and (six==False):
                     six=True
@@ -261,7 +259,6 @@ try:
             one = False
             two = False
             three = False
-            os.remove("kWhHourly.svg")
             sixamkWh = 0
 
 
