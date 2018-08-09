@@ -2,6 +2,7 @@ import pygal
 import argparse
 import pandas as pd
 import time
+import datetime
 from bacnet_gateway_requests import get_value_and_units
 
 def myFunction(facility):
