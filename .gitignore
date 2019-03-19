@@ -3,3 +3,5 @@ venv/*
 .idea/*.xml
 .idea/*.iml
 *.svg
+GaugeProjectApache/__pycache__/*
+GaugeProjectApache/py/__pychache/*
