@@ -2,4 +2,4 @@ venv/*
 .idea/*
 .idea/*.xml
 .idea/*.iml
-GaugeProjectApache/*.svg
+*.svg
