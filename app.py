@@ -1,9 +1,10 @@
-from flask import *
-import GaugeProjectApache.py.main
-import threading
 import os
-import time
 import shutil
+import threading
+
+from flask import *
+
+import GaugeProjectApache.py.main
 
 
 class SVGBuildingThread(object):
@@ -37,6 +38,8 @@ example = SVGBuildingThread()
 
 app = Flask(__name__)
 
+gauge_base_path = os.path.join(os.sep, 'static', 'svg')
+
 
 @app.route('/')
 def index():
@@ -45,25 +48,29 @@ def index():
 
 @app.route('/dollars')
 def dollars():
-    return render_template('dollars.html')
+    return render_template('gaugePage.html', title="Cost | Electricity Statistics Dashboard",
+                           gauge_path=os.path.join(gauge_base_path, 'dollars.svg'))
 
 
 @app.route('/kW')
 def kW():
-    return render_template('kW.html')
+    return render_template('gaugePage.html', title="Kilowatts | Electricity Statistics Dashboard",
+                           gauge_path=os.path.join(gauge_base_path, 'kw.svg'))
 
 
 @app.route('/kWh')
 def kWh():
-    return render_template('kWh.html')
+    return render_template('gaugePage.html', title="Kilowatt-Hours | Electricity Statistics Dashboard",
+                           gauge_path=os.path.join(gauge_base_path, 'kwh.svg'))
 
 
 @app.route('/kWhHourly')
 def hourly():
-    return render_template('kWhHourly.html')
+    return render_template('gaugePage.html', title="Kilowatt-Hours | Electricity Statistics Dashboard",
+                           gauge_path=os.path.join(gauge_base_path, 'kWhHourly.svg'))
 
 
 if __name__ == '__main__':
-    # while not os.path.exists(os.path.join('static', 'svg', 'dollars.svg')):
-    #     pass
+    while not os.path.exists(os.path.join('static', 'svg', 'dollars.svg')):
+        pass
     app.run()
