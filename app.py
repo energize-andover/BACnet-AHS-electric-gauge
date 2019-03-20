@@ -64,4 +64,6 @@ def hourly():
 
 
 if __name__ == '__main__':
+    while not os.path.exists(os.path.join('static', 'svg', 'dollars.svg')):
+        pass
     app.run()
