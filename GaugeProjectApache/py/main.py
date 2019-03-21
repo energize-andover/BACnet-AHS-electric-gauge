@@ -77,7 +77,7 @@ def main():
     gauge_chart.title = 'Electricity used hourly in kWh all of ahs'
     gauge_chart.range = [0, 7000]
     try:
-
+        global six_am_kwh, seven_am_kwh, eight_am_kwh, nine_am_kwh, ten_am_kwh, eleven_am_kwh, twelve_pm_kwh, one_pm_kwh, two_pm_kwh, three_pm_kwh
         percent_formatter = lambda x: '{:.10g}%'.format(x)
         dollar_formatter = lambda x: '{:.10g}$'.format(x)
         kW_formatter = lambda x: '{:.10g}kW'.format(x)
@@ -134,7 +134,7 @@ def main():
             kW = pygal.SolidGauge(
                 half_pie=True, inner_radius=0.70,
                 style=pygal.style.styles['default'](value_font_size=10))
-            kW.add('AHS MAIN aka all of AHS', [{'value': main_kw, 'max_value': 750}],
+            kW.add('AHS MAIN (AKA: All of AHS)', [{'value': main_kw, 'max_value': 750}],
                    formatter=kW_formatter)
             kW.add('AHS GYM', [{'value': gym_kw, 'max_value': 200}],
                    formatter=kW_formatter)
@@ -146,7 +146,7 @@ def main():
 
             kWh = pygal.SolidGauge(half_pie=True, inner_radius=0.70,
                                    style=pygal.style.styles['default'](value_font_size=10))
-            kWh.add('AHS MAIN aka all of AHS', [{'value': main_kwh, 'max_value': 50}],
+            kWh.add('AHS MAIN (AKA: All of AHS)', [{'value': main_kwh, 'max_value': 50}],
                     formatter=kWh_formatter)
             kWh.add('AHS GYM', [{'value': gym_kwh, 'max_value': 20}],
                     formatter=kWh_formatter)
@@ -158,7 +158,7 @@ def main():
 
             dollar = pygal.SolidGauge(half_pie=True, inner_radius=0.70,
                                       style=pygal.style.styles['default'](value_font_size=10))
-            dollar.add('AHS MAIN aka all of AHS', [{'value': int(main_kwh * 0.12), 'max_value': int(0.12 * 50)}],
+            dollar.add('AHS MAIN (AKA: All of AHS)', [{'value': int(main_kwh * 0.12), 'max_value': int(0.12 * 50)}],
                        formatter=dollar_formatter)
             dollar.add('AHS GYM', [{'value': int(gym_kwh * 0.12), 'max_value': int(0.12 * 20)}],
                        formatter=dollar_formatter)
@@ -208,7 +208,6 @@ def main():
             else:
                 if currentDT2.day == current_day:
                     if 5 <= currentDT.hour < 16:
-                        global six_am_kwh, seven_am_kwh, eight_am_kwh, nine_am_kwh, ten_am_kwh, eleven_am_kwh, twelve_pm_kwh, one_pm_kwh, two_pm_kwh, three_pm_kwh
                         if (int(currentDT.hour) == 6) and not six:
                             six = True
                             gauge_chart.add('6 am', 0)
@@ -217,7 +216,7 @@ def main():
                                 six_am_kwh = interpret_csv("Main (kWh)")
                             six_am_kwh = int(six_am_kwh)
 
-                        if (int(currentDT.hour) == 7) and (seven == False):
+                        if (int(currentDT.hour) == 7) and not seven:
                             seven = True
                             seven_am_kwh = interpret_csv("Main (kWh)")
                             if seven_am_kwh == '' or seven_am_kwh is None:
@@ -225,7 +224,7 @@ def main():
                             seven_am_kwh = int(seven_am_kwh)
                             gauge_chart.add('7 am', seven_am_kwh - six_am_kwh)
 
-                        if (int(currentDT.hour) == 8) and (eight == False):
+                        if (int(currentDT.hour) == 8) and not eight:
                             eight = True
                             eight_am_kwh = interpret_csv("Main (kWh)")
                             if eight_am_kwh == '' or eight_am_kwh is None:
@@ -233,7 +232,7 @@ def main():
                             eight_am_kwh = int(eight_am_kwh)
                             gauge_chart.add('8 am', eight_am_kwh - six_am_kwh)
 
-                        if (int(currentDT.hour) == 9) and (nine == False):
+                        if (int(currentDT.hour) == 9) and not nine:
                             nine = True
                             nine_am_kwh = interpret_csv("Main (kWh)")
                             if nine_am_kwh == '' or nine_am_kwh is None:
@@ -241,7 +240,7 @@ def main():
                             nine_am_kwh = int(nine_am_kwh)
                             gauge_chart.add('9 am', nine_am_kwh - six_am_kwh)
 
-                        if (int(currentDT.hour) == 10) and (ten == False):
+                        if (int(currentDT.hour) == 10) and not ten:
                             ten = True
                             ten_am_kwh = interpret_csv("Main (kWh)")
                             if ten_am_kwh == '' or ten_am_kwh is None:
@@ -249,7 +248,7 @@ def main():
                             ten_am_kwh = int(ten_am_kwh)
                             gauge_chart.add('10 am', ten_am_kwh - six_am_kwh)
 
-                        if (int(currentDT.hour) == 11) and (eleven == False):
+                        if (int(currentDT.hour) == 11) and not eleven:
                             eleven = True
                             eleven_am_kwh = interpret_csv("Main (kWh)")
                             if eleven_am_kwh == '' or eleven_am_kwh is None:
@@ -257,7 +256,7 @@ def main():
                             eleven_am_kwh = int(eleven_am_kwh)
                             gauge_chart.add('11 am', eleven_am_kwh - six_am_kwh)
 
-                        if (int(currentDT.hour) == 12) and (twelve == False):
+                        if (int(currentDT.hour) == 12) and not twelve:
                             twelve = True
                             twelve_pm_kwh = interpret_csv("Main (kWh)")
                             if twelve_pm_kwh == '' or twelve_pm_kwh is None:
@@ -265,7 +264,7 @@ def main():
                             twelve_pm_kwh = int(twelve_pm_kwh)
                             gauge_chart.add('12 pm', twelve_pm_kwh - six_am_kwh)
 
-                        if (int(currentDT.hour) == 13) and (one == False):
+                        if (int(currentDT.hour) == 13) and not one:
                             one = True
                             one_pm_kwh = interpret_csv("Main (kWh)")
                             if one_pm_kwh == '' or one_pm_kwh is None:
@@ -273,7 +272,7 @@ def main():
                             one_pm_kwh = int(one_pm_kwh)
                             gauge_chart.add('1 pm', one_pm_kwh - six_am_kwh)
 
-                        if (int(currentDT.hour) == 14) and (two == False):
+                        if (int(currentDT.hour) == 14) and not two:
                             two = True
                             two_pm_kwh = interpret_csv("Main (kWh)")
                             if two_pm_kwh == '' or two_pm_kwh is None:
@@ -281,7 +280,7 @@ def main():
                             two_pm_kwh = int(two_pm_kwh)
                             gauge_chart.add('2 pm', two_pm_kwh - six_am_kwh)
 
-                        if (int(currentDT.hour) == 15) and (three == False):
+                        if (int(currentDT.hour) == 15) and not three:
                             three = True
                             three_pm_kwh = interpret_csv("Main (kWh)")
                             if three_pm_kwh == '' or three_pm_kwh is None:

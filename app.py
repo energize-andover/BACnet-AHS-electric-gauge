@@ -48,25 +48,25 @@ def index():
 
 @app.route('/dollars')
 def dollars():
-    return render_template('gaugePage.html', title="Cost | Electricity Statistics Dashboard",
+    return render_template('gaugePage.html', title="Cost (Reset Daily) | Electricity Statistics Dashboard",
                            gauge_path=os.path.join(gauge_base_path, 'dollars.svg'))
 
 
 @app.route('/kW')
 def kW():
-    return render_template('gaugePage.html', title="Kilowatts | Electricity Statistics Dashboard",
+    return render_template('gaugePage.html', title="Kilowatts (Live) | Electricity Statistics Dashboard",
                            gauge_path=os.path.join(gauge_base_path, 'kw.svg'))
 
 
 @app.route('/kWh')
 def kWh():
-    return render_template('gaugePage.html', title="Kilowatt-Hours | Electricity Statistics Dashboard",
+    return render_template('gaugePage.html', title="Kilowatt-Hours (Reset Daily) | Electricity Statistics Dashboard",
                            gauge_path=os.path.join(gauge_base_path, 'kwh.svg'))
 
 
 @app.route('/kWhHourly')
 def hourly():
-    return render_template('gaugePage.html', title="Kilowatt-Hours | Electricity Statistics Dashboard",
+    return render_template('gaugePage.html', title="Kilowatt-Hours (Hourly) | Electricity Statistics Dashboard",
                            gauge_path=os.path.join(gauge_base_path, 'kWhHourly.svg'))
 
 
