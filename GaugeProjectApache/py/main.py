@@ -168,7 +168,7 @@ def main():
                        formatter=dollar_formatter)
             dollar.render_to_file("static/svg/dollars.svg")
             if int(currentDT.hour) == 23:
-                current_day = currentDT2.day + timedelta(days=1)
+                current_day = int(currentDT2.day) + int(timedelta(days=1))
 
                 main_kwh_constant = interpret_csv("Main (kWh)")
                 while main_kwh_constant == '' or main_kwh_constant is None:
