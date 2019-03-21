@@ -167,8 +167,40 @@ def main():
             dollar.add('AHS KITCHEN', [{'value': int(0.12 * kitchen_kwh), 'max_value': int(0.12 * 20)}],
                        formatter=dollar_formatter)
             dollar.render_to_file("static/svg/dollars.svg")
-            if currentDT.hour == 23:
+            if int(currentDT.hour) == 23:
                 current_day = currentDT2.day + timedelta(days=1)
+
+                main_kwh_constant = interpret_csv("Main (kWh)")
+                while main_kwh_constant == '' or main_kwh_constant is None:
+                    main_kwh_constant = interpret_csv("Main (kWh)")
+                main_kwh_constant = int(main_kwh_constant)
+
+                gym_kwh_constant = interpret_csv("DG (kWh)")
+                while gym_kwh_constant == '' or gym_kwh_constant is None:
+                    gym_kwh_constant = interpret_csv("DG (kWh)")
+                gym_kwh_constant = int(gym_kwh_constant)
+
+                kitchen_kwh_constant = interpret_csv("DE (kWh)")
+                while kitchen_kwh_constant == '' or kitchen_kwh_constant is None:
+                    kitchen_kwh_constant = interpret_csv("DE (kWh)")
+                kitchen_kwh_constant = int(kitchen_kwh_constant)
+
+                collins_center_kwh_constant = interpret_csv("AMDP (kWh)")
+                while collins_center_kwh_constant == '' or collins_center_kwh_constant is None:
+                    collins_center_kwh_constant = interpret_csv("AMDP (kWh)")
+                collins_center_kwh_constant = int(collins_center_kwh_constant)
+
+                six = False
+                seven = False
+                eight = False
+                nine = False
+                ten = False
+                eleven = False
+                twelve = False
+                one = False
+                two = False
+                three = False
+                six_am_kwh = 0
             try:
                 current_day
             except NameError:
@@ -260,38 +292,6 @@ def main():
                         gauge_chart.render_to_file("kWhHourly.svg")
 
             time.sleep(15)
-
-            if int(currentDT.hour) == 23:
-                main_kwh_constant = interpret_csv("Main (kWh)")
-                while main_kwh_constant == '' or main_kwh_constant is None:
-                    main_kwh_constant = interpret_csv("Main (kWh)")
-                main_kwh_constant = int(main_kwh_constant)
-
-                gym_kwh_constant = interpret_csv("DG (kWh)")
-                while gym_kwh_constant == '' or gym_kwh_constant is None:
-                    main_kwh_constant = interpret_csv("Main (kWh)")
-                gym_kwh_constant = int(gym_kwh_constant)
-
-                kitchen_kwh_constant = interpret_csv("DE (kWh)")
-                while kitchen_kwh_constant == '' or kitchen_kwh_constant is None:
-                    kitchen_kwh_constant = 0
-                kitchen_kwh_constant = int(kitchen_kwh_constant)
-
-                collins_center_kwh_constant = interpret_csv("AMDP (kWh)")
-                while collins_center_kwh_constant == '' or collins_center_kwh_constant is None:
-                    collins_center_kwh_constant = 0
-                collins_center_kwh_constant = int(collins_center_kwh_constant)
-                six = False
-                seven = False
-                eight = False
-                nine = False
-                ten = False
-                eleven = False
-                twelve = False
-                one = False
-                two = False
-                three = False
-                six_am_kwh = 0
 
     except KeyboardInterrupt:
         kW.render_to_file("static/svg/kw.svg")
