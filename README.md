@@ -2,9 +2,9 @@
 
 Hi!
 
-I'm Ayush Zenith. A high school sophomore from Andover High School, Andover, Massachusetts and this page is about an application I built with the help of a friend, Samar Seth.
+I'm Ayush Zenith. A high school sophomore from Andover High School, Andover, Massachusetts and this page is about an application I built for Andover High with Energize Andover
 
-To learn more about me check out my [blog](https://ayushenergyproject.weebly.com/).
+To learn more about me check out my [Website](https://ayushzenith.tech/).
 
 ## How to run the server
 1. Clone or Download BACnet-AHS-electric-gauge
@@ -121,8 +121,13 @@ The application in its current stage basically a live gauge for monitering elect
 
 ## Support or Contact
 
+Credits
+* Ayush Zenith - [Website](https://ayushzenith.tech/)
+* Daniel Ivanovich - [Website](https://www.ivanovich.us/)
+* Samar Seth
+  
+
 Contact me
 * Ayush Zenith
   * ayushp.zenith@gmail.com
-  * [blog](https://ayushenergyproject.weebly.com/).
-
+  * [Website](https://ayushzenith.tech/)
