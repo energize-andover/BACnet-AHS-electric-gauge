@@ -6,8 +6,9 @@ from flask import *
 
 import GaugeProjectApache.py.main
 
-HOST_PREFIX="/gauge"
+HOST_PREFIX = "/gauge"
 app = Flask(__name__)
+
 
 class SVGBuildingThread(object):
     """ Threading example class
@@ -30,6 +31,7 @@ class SVGBuildingThread(object):
         """ Method that runs forever """
         GaugeProjectApache.py.main.main()
 
+
 def main():
     if os.path.isdir('./static/svg'):
         shutil.rmtree('./static/svg')
@@ -40,29 +42,25 @@ def main():
 
     gauge_base_path = os.path.join(os.sep, 'static', 'svg')
 
-
     @app.route(HOST_PREFIX + '/')
     def index():
         return redirect(HOST_PREFIX + "/kW")
-
 
     @app.route(HOST_PREFIX + '/dollars')
     def dollars():
         return render_template('gaugePage.html', title="Cost (Reset Daily) | Electricity Statistics Dashboard",
                                gauge_path=os.path.join(gauge_base_path, 'dollars.svg'))
 
-
     @app.route(HOST_PREFIX + '/kW')
     def kW():
         return render_template('gaugePage.html', title="Kilowatts (Live) | Electricity Statistics Dashboard",
                                gauge_path=os.path.join(gauge_base_path, 'kw.svg'))
 
-
     @app.route(HOST_PREFIX + '/kWh')
     def kWh():
-        return render_template('gaugePage.html', title="Kilowatt-Hours (Reset Daily) | Electricity Statistics Dashboard",
+        return render_template('gaugePage.html',
+                               title="Kilowatt-Hours (Reset Daily) | Electricity Statistics Dashboard",
                                gauge_path=os.path.join(gauge_base_path, 'kwh.svg'))
-
 
     @app.route(HOST_PREFIX + '/kWhHourly')
     def hourly():
@@ -86,6 +84,7 @@ def main():
 
     while not os.path.exists(os.path.join('static', 'svg', 'dollars.svg')):
         pass
+
 
 main()
 
