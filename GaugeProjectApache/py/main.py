@@ -1,22 +1,21 @@
-import datetime
-import numbers
-import os
-import time
-
-import pandas as pd
 import pygal
-
+import pandas as pd
+import time
 from GaugeProjectApache.py.building_data_requests import get_value
+import numbers
+from datetime import timedelta
+import datetime
+import os
 
 
-def myFunction(facility):
+def interpret_csv(facility):
     try:
         # Read spreadsheet into a dataframe.
         # Each row contains the following:
         #   - Label
         #   - Facility
         #   - Instance ID of electric meter
-        df = pd.read_csv(os.path.join('GaugeProjectApache', 'csv', 'ahs_power.csv'))
+        df = pd.read_csv(os.path.join('GaugeProjectApache', 'csv', 'ahs_elec.csv'))
 
         # Output column headings
         # print('Feeder,Meter,Units')
@@ -43,28 +42,27 @@ def myFunction(facility):
 
 
 def main():
-    firstTest = True
     gauge_chart = pygal.Gauge(human_readable=True)
 
-    mainkWhConstant = myFunction("Main (kWh)")
-    if mainkWhConstant == '':
-        mainkWhConstant = 0
-    mainkWhConstant = int(mainkWhConstant)
+    main_kwh_constant = interpret_csv("Main (kWh)")
+    while main_kwh_constant == '' or main_kwh_constant is None:
+        main_kwh_constant = 0
+    main_kwh_constant = int(main_kwh_constant)
 
-    gymkWhConstant = myFunction("DG (kWh)")
-    if gymkWhConstant == '':
-        gymkWhConstant = 0
-    gymkWhConstant = int(gymkWhConstant)
+    gym_kwh_constant = interpret_csv("DG (kWh)")
+    while gym_kwh_constant == '' or gym_kwh_constant is None:
+        gym_kwh_constant = 0
+    gym_kwh_constant = int(gym_kwh_constant)
 
-    kitchenkWhConstant = myFunction("DE (kWh)")
-    if kitchenkWhConstant == '':
-        kitchenkWhConstant = 0
-    kitchenkWhConstant = int(kitchenkWhConstant)
+    kitchen_kwh_constant = interpret_csv("DE (kWh)")
+    while kitchen_kwh_constant == '' or kitchen_kwh_constant is None:
+        kitchen_kwh_constant = 0
+    kitchen_kwh_constant = int(kitchen_kwh_constant)
 
-    collinscenterkWhConstant = myFunction("AMDP (kWh)")
-    if collinscenterkWhConstant == '':
-        collinscenterkWhConstant = 0
-    collinscenterkWhConstant = int(collinscenterkWhConstant)
+    collins_center_kwh_constant = interpret_csv("AMDP (kWh)")
+    while collins_center_kwh_constant == '' or collins_center_kwh_constant is None:
+        collins_center_kwh_constant = 0
+    collins_center_kwh_constant = int(collins_center_kwh_constant)
 
     six = False
     seven = False
@@ -79,7 +77,7 @@ def main():
     gauge_chart.title = 'Electricity used hourly in kWh all of ahs'
     gauge_chart.range = [0, 7000]
     try:
-
+        global six_am_kwh, seven_am_kwh, eight_am_kwh, nine_am_kwh, ten_am_kwh, eleven_am_kwh, twelve_pm_kwh, one_pm_kwh, two_pm_kwh, three_pm_kwh
         percent_formatter = lambda x: '{:.10g}%'.format(x)
         dollar_formatter = lambda x: '{:.10g}$'.format(x)
         kW_formatter = lambda x: '{:.10g}kW'.format(x)
@@ -89,195 +87,108 @@ def main():
             currentDT = datetime.datetime.now()
             currentDT2 = datetime.date.today()
 
-            mainkW = myFunction("Main (kW)")
-            if mainkW == '':
-                mainkW = 0
-            mainkW = int(mainkW)
+            main_kw = interpret_csv("Main (kW)")
+            if main_kw == '' or main_kw is None:
+                main_kw = 0
+            main_kw = int(main_kw)
 
-            mainkWh = myFunction("Main (kWh)")
-            if mainkWh == '':
-                mainkWh = 0
-            mainkWh = int(mainkWh)
-            mainkWh = mainkWh - mainkWhConstant
+            main_kwh = interpret_csv("Main (kWh)")
+            if main_kwh == '' or main_kwh is None:
+                main_kwh = 0
+            main_kwh = int(main_kwh)
+            main_kwh = main_kwh - main_kwh_constant
 
-            gymkW = myFunction("DG (kW)")
-            if gymkW == '':
-                gymkW = 0
-            gymkW = int(gymkW)
+            gym_kw = interpret_csv("DG (kW)")
+            if gym_kw == '' or gym_kw is None:
+                gym_kw = 0
+            gym_kw = int(gym_kw)
 
-            gymkWh = myFunction("DG (kWh)")
-            if gymkWh == '':
-                gymkWh = 0
-            gymkWh = int(gymkWh)
-            gymkWh = gymkWh - gymkWhConstant
+            gym_kwh = interpret_csv("DG (kWh)")
+            if gym_kwh == '' or gym_kwh is None:
+                gym_kwh = 0
+            gym_kwh = int(gym_kwh)
+            gym_kwh = gym_kwh - gym_kwh_constant
 
-            kitchenkW = myFunction("DE (kW)")
-            if kitchenkW == '':
-                kitchenkW = 0
-            kitchenkW = int(kitchenkW)
+            kitchen_kw = interpret_csv("DE (kW)")
+            if kitchen_kw == '' or kitchen_kw is None:
+                kitchen_kw = 0
+            kitchen_kw = int(kitchen_kw)
 
-            kitchenkWh = myFunction("DE (kWh)")
-            if kitchenkWh == '':
-                kitchenkWh = 0
-            kitchenkWh = int(kitchenkWh)
-            kitchenkWh = kitchenkWh - kitchenkWhConstant
+            kitchen_kwh = interpret_csv("DE (kWh)")
+            if kitchen_kwh == '' or kitchen_kwh is None:
+                kitchen_kwh = 0
+            kitchen_kwh = int(kitchen_kwh)
+            kitchen_kwh = kitchen_kwh - kitchen_kwh_constant
 
-            collinscenterkW = myFunction("AMDP (kW)")
-            if collinscenterkW == '':
-                collinscenterkW = 0
-            collinscenterkW = int(collinscenterkW)
+            collins_center_kw = interpret_csv("AMDP (kW)")
+            if collins_center_kw == '' or collins_center_kw is None:
+                collins_center_kw = 0
+            collins_center_kw = int(collins_center_kw)
 
-            collinscenterkWh = myFunction("AMDP (kWh)")
-            if collinscenterkWh == '':
-                collinscenterkWh = 0
-            collinscenterkWh = int(collinscenterkWh)
-            collinscenterkWh = collinscenterkWh - collinscenterkWhConstant
+            collins_center_kwh = interpret_csv("AMDP (kWh)")
+            if collins_center_kwh == '' or collins_center_kwh is None:
+                collins_center_kwh = 0
+            collins_center_kwh = int(collins_center_kwh)
+            collins_center_kwh = collins_center_kwh - collins_center_kwh_constant
 
             kW = pygal.SolidGauge(
                 half_pie=True, inner_radius=0.70,
                 style=pygal.style.styles['default'](value_font_size=10))
-            kW.add('AHS MAIN aka all of AHS', [{'value': mainkW, 'max_value': 750}],
+            kW.add('AHS MAIN (AKA: All of AHS)', [{'value': main_kw, 'max_value': 750}],
                    formatter=kW_formatter)
-            kW.add('AHS GYM', [{'value': gymkW, 'max_value': 200}],
+            kW.add('AHS GYM', [{'value': gym_kw, 'max_value': 200}],
                    formatter=kW_formatter)
-            kW.add('AHS COLLINS CENTER', [{'value': collinscenterkW, 'max_value': 250}],
+            kW.add('AHS COLLINS CENTER', [{'value': collins_center_kw, 'max_value': 250}],
                    formatter=kW_formatter)
-            kW.add('AHS KITCHEN', [{'value': kitchenkW, 'max_value': 150}],
+            kW.add('AHS KITCHEN', [{'value': kitchen_kw, 'max_value': 150}],
                    formatter=kW_formatter)
             kW.render_to_file("static/svg/kw.svg")
 
             kWh = pygal.SolidGauge(half_pie=True, inner_radius=0.70,
                                    style=pygal.style.styles['default'](value_font_size=10))
-            kWh.add('AHS MAIN aka all of AHS', [{'value': mainkWh, 'max_value': 50}],
+            kWh.add('AHS MAIN (AKA: All of AHS)', [{'value': main_kwh, 'max_value': 50}],
                     formatter=kWh_formatter)
-            kWh.add('AHS GYM', [{'value': gymkWh, 'max_value': 20}],
+            kWh.add('AHS GYM', [{'value': gym_kwh, 'max_value': 20}],
                     formatter=kWh_formatter)
-            kWh.add('AHS COLLINS CENTER', [{'value': collinscenterkWh, 'max_value': 20}],
+            kWh.add('AHS COLLINS CENTER', [{'value': collins_center_kwh, 'max_value': 20}],
                     formatter=kWh_formatter)
-            kWh.add('AHS KITCHEN', [{'value': kitchenkWh, 'max_value': 20}],
+            kWh.add('AHS KITCHEN', [{'value': kitchen_kwh, 'max_value': 20}],
                     formatter=kWh_formatter)
             kWh.render_to_file("static/svg/kwh.svg")
 
             dollar = pygal.SolidGauge(half_pie=True, inner_radius=0.70,
                                       style=pygal.style.styles['default'](value_font_size=10))
-            dollar.add('AHS MAIN aka all of AHS', [{'value': int(mainkWh * 0.12), 'max_value': int(0.12 * 50)}],
+            dollar.add('AHS MAIN (AKA: All of AHS)', [{'value': int(main_kwh * 0.12), 'max_value': int(0.12 * 50)}],
                        formatter=dollar_formatter)
-            dollar.add('AHS GYM', [{'value': int(gymkWh * 0.12), 'max_value': int(0.12 * 20)}],
+            dollar.add('AHS GYM', [{'value': int(gym_kwh * 0.12), 'max_value': int(0.12 * 20)}],
                        formatter=dollar_formatter)
-            dollar.add('AHS COLLINS CENTER', [{'value': int(0.12 * collinscenterkWh), 'max_value': int(0.12 * 20)}],
+            dollar.add('AHS COLLINS CENTER', [{'value': int(0.12 * collins_center_kwh), 'max_value': int(0.12 * 20)}],
                        formatter=dollar_formatter)
-            dollar.add('AHS KITCHEN', [{'value': int(0.12 * kitchenkWh), 'max_value': int(0.12 * 20)}],
+            dollar.add('AHS KITCHEN', [{'value': int(0.12 * kitchen_kwh), 'max_value': int(0.12 * 20)}],
                        formatter=dollar_formatter)
             dollar.render_to_file("static/svg/dollars.svg")
+            if int(currentDT.hour) == 23:
+                current_day = currentDT2.day + timedelta(days=1)
 
-            if currentDT.hour >= 5 and currentDT.hour < 16:
-                if (int(currentDT.hour) == 6) and (six == False):
-                    firstTest = False;
-                    six = True
-                    gauge_chart.add('6 am', 0)
-                    sixamkWh = myFunction("Main (kWh)")
-                    if sixamkWh == '':
-                        sixamkWh = myFunction("Main (kWh)")
-                    sixamkWh = int(sixamkWh)
-                    gauge_chart.render_to_file("kWhHourly.svg")
-                if firstTest:
-                    if (int(currentDT.hour) == 7) and (seven == False):
-                        seven = True
-                        sevenamkWh = myFunction("Main (kWh)")
-                        if sevenamkWh == '':
-                            sevenamkWh = myFunction("Main (kWh)")
-                        sevenamkWh = int(sevenamkWh)
-                        gauge_chart.add('7 am', sevenamkWh - sixamkWh)
+                main_kwh_constant = interpret_csv("Main (kWh)")
+                while main_kwh_constant == '' or main_kwh_constant is None:
+                    main_kwh_constant = interpret_csv("Main (kWh)")
+                main_kwh_constant = int(main_kwh_constant)
 
-                    if (int(currentDT.hour) == 8) and (eight == False):
-                        eight = True
-                        eightamkWh = myFunction("Main (kWh)")
-                        if eightamkWh == '':
-                            eightamkWh = myFunction("Main (kWh)")
-                        eightamkWh = int(eightamkWh)
-                        gauge_chart.add('8 am', eightamkWh - sixamkWh)
+                gym_kwh_constant = interpret_csv("DG (kWh)")
+                while gym_kwh_constant == '' or gym_kwh_constant is None:
+                    gym_kwh_constant = interpret_csv("DG (kWh)")
+                gym_kwh_constant = int(gym_kwh_constant)
 
-                    if (int(currentDT.hour) == 9) and (nine == False):
-                        nine = True
-                        nineamkWh = myFunction("Main (kWh)")
-                        if nineamkWh == '':
-                            nineamkWh = myFunction("Main (kWh)")
-                        nineamkWh = int(nineamkWh)
-                        gauge_chart.add('9 am', nineamkWh - sixamkWh)
+                kitchen_kwh_constant = interpret_csv("DE (kWh)")
+                while kitchen_kwh_constant == '' or kitchen_kwh_constant is None:
+                    kitchen_kwh_constant = interpret_csv("DE (kWh)")
+                kitchen_kwh_constant = int(kitchen_kwh_constant)
 
-                    if (int(currentDT.hour) == 10) and (ten == False):
-                        ten = True
-                        tenamkWh = myFunction("Main (kWh)")
-                        if tenamkWh == '':
-                            tenamkWh = myFunction("Main (kWh)")
-                        tenamkWh = int(tenamkWh)
-                        gauge_chart.add('10 am', tenamkWh - sixamkWh)
-
-                    if (int(currentDT.hour) == 11) and (eleven == False):
-                        eleven = True
-                        elevenamkWh = myFunction("Main (kWh)")
-                        if elevenamkWh == '':
-                            elevenamkWh = myFunction("Main (kWh)")
-                        elevenamkWh = int(elevenamkWh)
-                        gauge_chart.add('11 am', elevenamkWh - sixamkWh)
-
-                    if (int(currentDT.hour) == 12) and (twelve == False):
-                        twelve = True
-                        twelvepmkWh = myFunction("Main (kWh)")
-                        if twelvepmkWh == '':
-                            twelvepmkWh = myFunction("Main (kWh)")
-                        twelvepmkWh = int(twelvepmkWh)
-                        gauge_chart.add('12 pm', twelvepmkWh - sixamkWh)
-
-                    if (int(currentDT.hour) == 13) and (one == False):
-                        one = True
-                        onepmkWh = myFunction("Main (kWh)")
-                        if onepmkWh == '':
-                            onepmkWh = myFunction("Main (kWh)")
-                        onepmkWh = int(onepmkWh)
-                        gauge_chart.add('1 pm', onepmkWh - sixamkWh)
-
-                    if (int(currentDT.hour) == 14) and (two == False):
-                        two = True
-                        twopmkWh = myFunction("Main (kWh)")
-                        if twopmkWh == '':
-                            twopmkWh = myFunction("Main (kWh)")
-                        twopmkWh = int(twopmkWh)
-                        gauge_chart.add('2 pm', twopmkWh - sixamkWh)
-
-                    if (int(currentDT.hour) == 15) and (three == False):
-                        three = True
-                        threepmkWh = myFunction("Main (kWh)")
-                        if threepmkWh == '':
-                            threepmkWh = myFunction("Main (kWh)")
-                        threepmkWh = int(threepmkWh)
-                        gauge_chart.add('3 pm', threepmkWh - sixamkWh)
-                        firstTest = True;
-
-                    gauge_chart.render_to_file("kWhHourly.svg")
-
-            time.sleep(15)
-
-            if (int(currentDT.hour) == 23):
-                mainkWhConstant = myFunction("Main (kWh)")
-                if mainkWhConstant == '':
-                    mainkWhConstant = 0
-                mainkWhConstant = int(mainkWhConstant)
-
-                gymkWhConstant = myFunction("DG (kWh)")
-                if gymkWhConstant == '':
-                    gymkWhConstant = 0
-                gymkWhConstant = int(gymkWhConstant)
-
-                kitchenkWhConstant = myFunction("DE (kWh)")
-                if kitchenkWhConstant == '':
-                    kitchenkWhConstant = 0
-                kitchenkWhConstant = int(kitchenkWhConstant)
-
-                collinscenterkWhConstant = myFunction("AMDP (kWh)")
-                if collinscenterkWhConstant == '':
-                    collinscenterkWhConstant = 0
-                collinscenterkWhConstant = int(collinscenterkWhConstant)
+                collins_center_kwh_constant = interpret_csv("AMDP (kWh)")
+                while collins_center_kwh_constant == '' or collins_center_kwh_constant is None:
+                    collins_center_kwh_constant = interpret_csv("AMDP (kWh)")
+                collins_center_kwh_constant = int(collins_center_kwh_constant)
 
                 six = False
                 seven = False
@@ -289,12 +200,101 @@ def main():
                 one = False
                 two = False
                 three = False
-                sixamkWh = 0
+                six_am_kwh = 0
+            try:
+                current_day
+            except NameError:
+                print("kWh hourly not ready yet")
+            else:
+                if currentDT2.day == current_day:
+                    if 5 <= currentDT.hour < 16:
+                        if (int(currentDT.hour) == 6) and not six:
+                            six = True
+                            gauge_chart.add('6 am', 0)
+                            six_am_kwh = interpret_csv("Main (kWh)")
+                            if six_am_kwh == '' or six_am_kwh is None:
+                                six_am_kwh = interpret_csv("Main (kWh)")
+                            six_am_kwh = int(six_am_kwh)
 
+                        if (int(currentDT.hour) == 7) and not seven:
+                            seven = True
+                            seven_am_kwh = interpret_csv("Main (kWh)")
+                            if seven_am_kwh == '' or seven_am_kwh is None:
+                                seven_am_kwh = interpret_csv("Main (kWh)")
+                            seven_am_kwh = int(seven_am_kwh)
+                            gauge_chart.add('7 am', seven_am_kwh - six_am_kwh)
+
+                        if (int(currentDT.hour) == 8) and not eight:
+                            eight = True
+                            eight_am_kwh = interpret_csv("Main (kWh)")
+                            if eight_am_kwh == '' or eight_am_kwh is None:
+                                eight_am_kwh = interpret_csv("Main (kWh)")
+                            eight_am_kwh = int(eight_am_kwh)
+                            gauge_chart.add('8 am', eight_am_kwh - six_am_kwh)
+
+                        if (int(currentDT.hour) == 9) and not nine:
+                            nine = True
+                            nine_am_kwh = interpret_csv("Main (kWh)")
+                            if nine_am_kwh == '' or nine_am_kwh is None:
+                                nine_am_kwh = interpret_csv("Main (kWh)")
+                            nine_am_kwh = int(nine_am_kwh)
+                            gauge_chart.add('9 am', nine_am_kwh - six_am_kwh)
+
+                        if (int(currentDT.hour) == 10) and not ten:
+                            ten = True
+                            ten_am_kwh = interpret_csv("Main (kWh)")
+                            if ten_am_kwh == '' or ten_am_kwh is None:
+                                ten_am_kwh = interpret_csv("Main (kWh)")
+                            ten_am_kwh = int(ten_am_kwh)
+                            gauge_chart.add('10 am', ten_am_kwh - six_am_kwh)
+
+                        if (int(currentDT.hour) == 11) and not eleven:
+                            eleven = True
+                            eleven_am_kwh = interpret_csv("Main (kWh)")
+                            if eleven_am_kwh == '' or eleven_am_kwh is None:
+                                eleven_am_kwh = interpret_csv("Main (kWh)")
+                            eleven_am_kwh = int(eleven_am_kwh)
+                            gauge_chart.add('11 am', eleven_am_kwh - six_am_kwh)
+
+                        if (int(currentDT.hour) == 12) and not twelve:
+                            twelve = True
+                            twelve_pm_kwh = interpret_csv("Main (kWh)")
+                            if twelve_pm_kwh == '' or twelve_pm_kwh is None:
+                                twelve_pm_kwh = interpret_csv("Main (kWh)")
+                            twelve_pm_kwh = int(twelve_pm_kwh)
+                            gauge_chart.add('12 pm', twelve_pm_kwh - six_am_kwh)
+
+                        if (int(currentDT.hour) == 13) and not one:
+                            one = True
+                            one_pm_kwh = interpret_csv("Main (kWh)")
+                            if one_pm_kwh == '' or one_pm_kwh is None:
+                                one_pm_kwh = interpret_csv("Main (kWh)")
+                            one_pm_kwh = int(one_pm_kwh)
+                            gauge_chart.add('1 pm', one_pm_kwh - six_am_kwh)
+
+                        if (int(currentDT.hour) == 14) and not two:
+                            two = True
+                            two_pm_kwh = interpret_csv("Main (kWh)")
+                            if two_pm_kwh == '' or two_pm_kwh is None:
+                                two_pm_kwh = interpret_csv("Main (kWh)")
+                            two_pm_kwh = int(two_pm_kwh)
+                            gauge_chart.add('2 pm', two_pm_kwh - six_am_kwh)
+
+                        if (int(currentDT.hour) == 15) and not three:
+                            three = True
+                            three_pm_kwh = interpret_csv("Main (kWh)")
+                            if three_pm_kwh == '' or three_pm_kwh is None:
+                                three_pm_kwh = interpret_csv("Main (kWh)")
+                            three_pm_kwh = int(three_pm_kwh)
+                            gauge_chart.add('3 pm', three_pm_kwh - six_am_kwh)
+
+                        gauge_chart.render_to_file("kWhHourly.svg")
+
+            time.sleep(15)
 
     except KeyboardInterrupt:
         kW.render_to_file("static/svg/kw.svg")
         kWh.render_to_file("static/svg/kwh.svg")
         dollar.render_to_file("static/svg/dollars.svg")
-        if currentDT.hour > 5 and currentDT.hour < 16:
+        if 5 < currentDT.hour < 16:
             gauge_chart.render_to_file("static/svg/kWhHourly.svg")
