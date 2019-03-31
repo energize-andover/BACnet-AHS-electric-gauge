@@ -178,7 +178,7 @@ def main():
                     if sixamkWh == '':
                         sixamkWh = myFunction("Main (kWh)")
                     sixamkWh = int(sixamkWh)
-                    gauge_chart.render_to_file("kWhHourly.svg")
+                    gauge_chart.render_to_file("static/svg/kWhHourly.svg")
                 if firstTest == False:
                     if (int(currentDT.hour) == 7) and (seven == False):
                         seven = True
@@ -253,7 +253,7 @@ def main():
                         gauge_chart.add('3 pm', threepmkWh - sixamkWh)
                         firstTest = True;
 
-                    gauge_chart.render_to_file("kWhHourly.svg")
+                    gauge_chart.render_to_file("static/svg/kWhHourly.svg")
 
             time.sleep(15)
 
