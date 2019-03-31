@@ -90,45 +90,45 @@ def main():
             currentDT2 = datetime.date.today()
 
             mainkW = myFunction("Main (kW)")
-            if mainkW == '':
+            if mainkW == '' or mainkW is None:
                 mainkW = 0
             mainkW = int(mainkW)
 
             mainkWh = myFunction("Main (kWh)")
-            if mainkWh == '':
+            if mainkWh == '' or mainkWh is None:
                 mainkWh = 0
             mainkWh = int(mainkWh)
             mainkWh = mainkWh - mainkWhConstant
 
             gymkW = myFunction("DG (kW)")
-            if gymkW == '':
+            if gymkW == '' or gymkW is None:
                 gymkW = 0
             gymkW = int(gymkW)
 
             gymkWh = myFunction("DG (kWh)")
-            if gymkWh == '':
+            if gymkWh == '' or gymkWh is None:
                 gymkWh = 0
             gymkWh = int(gymkWh)
             gymkWh = gymkWh - gymkWhConstant
 
             kitchenkW = myFunction("DE (kW)")
-            if kitchenkW == '':
+            if kitchenkW == '' or kitchenkW is None:
                 kitchenkW = 0
             kitchenkW = int(kitchenkW)
 
             kitchenkWh = myFunction("DE (kWh)")
-            if kitchenkWh == '':
+            if kitchenkWh == '' or kitchenkWh is None:
                 kitchenkWh = 0
             kitchenkWh = int(kitchenkWh)
             kitchenkWh = kitchenkWh - kitchenkWhConstant
 
             collinscenterkW = myFunction("AMDP (kW)")
-            if collinscenterkW == '':
+            if collinscenterkW == '' or collinscenterkW is None:
                 collinscenterkW = 0
             collinscenterkW = int(collinscenterkW)
 
             collinscenterkWh = myFunction("AMDP (kWh)")
-            if collinscenterkWh == '':
+            if collinscenterkWh == '' or collinscenterkWh is None:
                 collinscenterkWh = 0
             collinscenterkWh = int(collinscenterkWh)
             collinscenterkWh = collinscenterkWh - collinscenterkWhConstant
@@ -148,25 +148,25 @@ def main():
 
             kWh = pygal.SolidGauge(half_pie=True, inner_radius=0.70,
                                    style=pygal.style.styles['default'](value_font_size=10))
-            kWh.add('AHS MAIN aka all of AHS', [{'value': mainkWh, 'max_value': 50}],
+            kWh.add('AHS MAIN aka all of AHS', [{'value': mainkWh, 'max_value': 7500}],
                     formatter=kWh_formatter)
-            kWh.add('AHS GYM', [{'value': gymkWh, 'max_value': 20}],
+            kWh.add('AHS GYM', [{'value': gymkWh, 'max_value': 2000}],
                     formatter=kWh_formatter)
-            kWh.add('AHS COLLINS CENTER', [{'value': collinscenterkWh, 'max_value': 20}],
+            kWh.add('AHS COLLINS CENTER', [{'value': collinscenterkWh, 'max_value': 2000}],
                     formatter=kWh_formatter)
-            kWh.add('AHS KITCHEN', [{'value': kitchenkWh, 'max_value': 20}],
+            kWh.add('AHS KITCHEN', [{'value': kitchenkWh, 'max_value': 1700}],
                     formatter=kWh_formatter)
             kWh.render_to_file("static/svg/kwh.svg")
 
             dollar = pygal.SolidGauge(half_pie=True, inner_radius=0.70,
                                       style=pygal.style.styles['default'](value_font_size=10))
-            dollar.add('AHS MAIN aka all of AHS', [{'value': int(mainkWh * 0.12), 'max_value': int(0.12 * 50)}],
+            dollar.add('AHS MAIN aka all of AHS', [{'value': int(mainkWh * 0.12), 'max_value': int(0.12 * 7500)}],
                        formatter=dollar_formatter)
-            dollar.add('AHS GYM', [{'value': int(gymkWh * 0.12), 'max_value': int(0.12 * 20)}],
+            dollar.add('AHS GYM', [{'value': int(gymkWh * 0.12), 'max_value': int(0.12 * 2000)}],
                        formatter=dollar_formatter)
-            dollar.add('AHS COLLINS CENTER', [{'value': int(0.12 * collinscenterkWh), 'max_value': int(0.12 * 20)}],
+            dollar.add('AHS COLLINS CENTER', [{'value': int(0.12 * collinscenterkWh), 'max_value': int(0.12 * 2000)}],
                        formatter=dollar_formatter)
-            dollar.add('AHS KITCHEN', [{'value': int(0.12 * kitchenkWh), 'max_value': int(0.12 * 20)}],
+            dollar.add('AHS KITCHEN', [{'value': int(0.12 * kitchenkWh), 'max_value': int(0.12 * 1700)}],
                        formatter=dollar_formatter)
             dollar.render_to_file("static/svg/dollars.svg")
 
