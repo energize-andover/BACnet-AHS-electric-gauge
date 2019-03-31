@@ -6,7 +6,7 @@ from flask import *
 
 import GaugeProjectApache.py.main
 
-HOST_PREFIX = "/gauge"
+HOST_PREFIX = "/"
 app = Flask(__name__)
 
 
