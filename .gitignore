@@ -6,3 +6,5 @@ venv/*
 GaugeProjectApache/__pycache__/*
 GaugeProjectApache/py/__pycache__/*
 __pycache__/*
+/GaugeProjectApache/py/building_data_requests.py
+static/svg/
