@@ -62,6 +62,10 @@ def main():
         return render_template('gaugePage.html', title="Cost (Reset Daily) | Electricity Statistics Dashboard",
                                gauge_path=os.path.join(gauge_base_path, 'dollars.svg'))
 
+    @app.route(HOST_PREFIX + '/documentation')
+    def documentation():
+        return render_template('documentation.html')
+
     @app.route(HOST_PREFIX + '/kW')
     def kW():
         return render_template('gaugePage.html', title="Kilowatts (Live) | Electricity Statistics Dashboard",
