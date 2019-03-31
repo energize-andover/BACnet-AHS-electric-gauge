@@ -1,11 +1,10 @@
 # Copyright 2018 Building Energy Gateway.  All rights reserved.
 
+import requests
 import json
 
-import requests
-
 PUBLIC_HOSTNAME = 'energize.andoverma.us'
-INTERNAL_PORT = ''
+INTERNAL_PORT = '8000'
 
 
 # Request present value and units for the supplied instance
@@ -13,7 +12,9 @@ def get_value(facility, instance, gateway_hostname=None, gateway_port=None, live
     value = None
     units = None
 
-    if str(instance).isdigit() and int(instance) > 0:
+    # Ensure that instance is either a positive integer or non-empty string
+    if (str(instance).isdigit() and (int(instance) > 0)) or (
+            not str(instance).isdigit() and (len(str(instance).strip()) > 0)):
         # Instance appears to be valid
 
         # Set up request arguments
