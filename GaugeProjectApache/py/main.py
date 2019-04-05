@@ -258,6 +258,13 @@ def main():
             time.sleep(15)
 
             if (int(currentDT.hour) == 23):
+
+                gauge_chart = pygal.Gauge(human_readable=True)
+                try:
+                    open('static/svg/kWhHourly.svg', 'w').close()
+                except:
+                    print("Exception")
+
                 mainkWhConstant = myFunction("Main (kWh)")
                 if mainkWhConstant == '':
                     mainkWhConstant = 0
