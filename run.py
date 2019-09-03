@@ -1,12 +1,11 @@
 import os
 import shutil
 import threading
-
 from flask import *
+from config import *
 
 import GaugeProjectApache.py.main
 
-HOST_PREFIX = "/gauge"
 app = Flask(__name__)
 
 
